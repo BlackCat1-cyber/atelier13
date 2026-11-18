@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Ателье №13 · прокат вечерних платьев, смокингов и карнавальных костюмов{% endblock %}
+{% block content %}
+<section class="hero">
+  <p class="kicker">Вариант 13 · прокат нарядов · Санкт-Петербург</p>
+  <h1>Наряды для вечера, который запомнят</h1>
+  <p class="lead">Вечерние платья, смокинги и карнавальные костюмы. Примерка до трёх нарядов, аренда от одних суток, залог возвращается после осмотра.</p>
+  <div class="hero-actions">
+    <a class="btn" href="#cats">Смотреть категории</a>
+    <a class="btn btn-ghost" href="#popular">Что свободно сейчас</a>
+  </div>
+  <ul class="stats">
+    {% for n, label in stats %}<li><strong>{{ n }}</strong><span>{{ label }}</span></li>{% endfor %}
+  </ul>
+</section>
+<section id="cats" aria-labelledby="cats-t">
+  <h2 id="cats-t">Категории</h2>
+  <div class="cats">
+    {% for cat in categories %}
+    <a class="cat" href="#popular">
+      <span class="cat-name">{{ cat.name }}</span>
+      <span class="cat-n">{{ cat.n }} нарядов</span>
+    </a>
+    {% empty %}<p class="empty">Категорий пока нет.</p>{% endfor %}
+  </div>
+</section>
+<section id="popular" aria-labelledby="pop-t">
+  <h2 id="pop-t">Свободны сейчас</h2>
+  <div class="grid">
+    {% for c in popular %}
+    <article class="card">
+      <div class="card-photo">
+        <img src="{% static 'img/poster.svg' %}" alt="{{ c.name }} — {{ c.category.name }}, размер {{ c.size_params.size }}" width="600" height="750" loading="lazy">
+      </div>
+      <div class="card-body">
+        <p class="card-article">{{ c.article }}</p>
+        <h3>{{ c.name }}</h3>
+        <p class="muted">р. {{ c.size_params.size }} · рост {{ c.size_params.height_from }}–{{ c.size_params.height_to }} см</p>
+        <p class="muted">{{ c.description|truncatechars:70 }}</p>
+        <p class="card-price">{{ c.daily_price|floatformat:2 }} ₽<span>/сутки</span></p>
+        <p class="muted">залог {{ c.deposit_amount|floatformat:0 }} ₽</p>
+      </div>
+    </article>
+    {% empty %}<p class="empty">Свободных нарядов пока нет.</p>{% endfor %}
+  </div>
+</section>
+<section id="how" aria-labelledby="how-t">
+  <h2 id="how-t">Как это работает</h2>
+  <ol class="steps">
+    <li><strong>1</strong><span>Выберите наряд и даты — календарь показывает занятость с буфером +2 дня</span></li>
+    <li><strong>2</strong><span>Примерьте до трёх нарядов за слот 40 минут с консультантом</span></li>
+    <li><strong>3</strong><span>Заберите наряд, верните после события — залог возвращается в день осмотра</span></li>
+  </ol>
+</section>
+{% endblock %}
