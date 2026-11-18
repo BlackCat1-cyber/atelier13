@@ -1,0 +1,45 @@
+26 objects imported automatically (use -v 2 for details).
+
+>>> >>> >>> >>> >>> === Запрос 1. Фильтрация по условию + сортировка ===
+>>> >>> SELECT "app_catalog_costume"."id", "app_catalog_costume"."article", "app_catalog_costume"."name", "app_catalog_costume"."description", "app_catalog_costume"."photo", "app_catalog_costume"."category_id", "app_catalog_costume"."daily_price", "app_catalog_costume"."deposit_amount", "app_catalog_costume"."completeness", "app_catalog_costume"."status" FROM "app_catalog_costume" INNER JOIN "app_catalog_category" ON ("app_catalog_costume"."category_id" = "app_catalog_category"."id") WHERE ("app_catalog_category"."name" = Вечернее платье AND "app_catalog_costume"."daily_price" <= 4000 AND "app_catalog_costume"."status" = available) ORDER BY "app_catalog_costume"."daily_price" ASC
+>>> ... ... PL-2026-005 Платье «Диана» 2500.00
+PL-2026-003 Платье «Беатрис» 2800.00
+PL-2026-012 Платье «Николь» 2900.00
+PL-2026-011 Платье «Мелоди» 3100.00
+PL-2026-002 Платье «Виктория» 3200.00
+PL-2026-010 Платье «Лилия» 3300.00
+PL-2026-001 Платье «Аврора» 3500.00
+PL-2026-009 Платье «Изабелла» 3600.00
+PL-2026-007 Платье «Флора» 3700.00
+PL-2026-006 Платье «Ева» 3900.00
+PL-2026-004 Платье «Селена» 4000.00
+>>> 
+>>> === Запрос 2. Агрегация Count/Avg/Sum по категориям ===
+>>> >>> SELECT "app_catalog_category"."name" AS "category__name", COUNT("app_catalog_costume"."id") AS "total", (CAST(AVG("app_catalog_costume"."daily_price") AS NUMERIC)) AS "avg_price", (CAST(SUM("app_catalog_costume"."deposit_amount") AS NUMERIC)) AS "sum_deposit" FROM "app_catalog_costume" INNER JOIN "app_catalog_category" ON ("app_catalog_costume"."category_id" = "app_catalog_category"."id") GROUP BY 1 ORDER BY 1 ASC
+>>> ... ... {'category__name': 'Вечернее платье', 'total': 12, 'avg_price': Decimal('3416.66666666667'), 'sum_deposit': Decimal('174000')}
+{'category__name': 'Карнавальный костюм', 'total': 8, 'avg_price': Decimal('2762.5'), 'sum_deposit': Decimal('93000')}
+{'category__name': 'Коктейльное платье', 'total': 5, 'avg_price': Decimal('2900'), 'sum_deposit': Decimal('61000')}
+{'category__name': 'Смокинг', 'total': 10, 'avg_price': Decimal('4650'), 'sum_deposit': Decimal('206000')}
+>>> 
+>>> === Запрос 3. Связь один-ко-многим через select_related ===
+>>> >>> SELECT "app_bookings_booking"."id", "app_bookings_booking"."client_id", "app_bookings_booking"."costume_id", "app_bookings_booking"."date_start", "app_bookings_booking"."date_end", "app_bookings_booking"."blocked_until", "app_bookings_booking"."actual_return_date", "app_bookings_booking"."total_price", "app_bookings_booking"."status", "app_bookings_booking"."terms_accepted", "app_bookings_booking"."created_at", "app_catalog_costume"."id", "app_catalog_costume"."article", "app_catalog_costume"."name", "app_catalog_costume"."description", "app_catalog_costume"."photo", "app_catalog_costume"."category_id", "app_catalog_costume"."daily_price", "app_catalog_costume"."deposit_amount", "app_catalog_costume"."completeness", "app_catalog_costume"."status", "app_catalog_category"."id", "app_catalog_category"."name", "app_catalog_category"."description" FROM "app_bookings_booking" INNER JOIN "auth_user" ON ("app_bookings_booking"."client_id" = "auth_user"."id") INNER JOIN "app_catalog_costume" ON ("app_bookings_booking"."costume_id" = "app_catalog_costume"."id") INNER JOIN "app_catalog_category" ON ("app_catalog_costume"."category_id" = "app_catalog_category"."id") WHERE ("auth_user"."username" = ivanov AND "app_bookings_booking"."status" IN (pending, issued)) ORDER BY "app_bookings_booking"."date_start" ASC
+>>> ... ... 5 CK-2026-001 Коктейльное платье 5800.00
+1 PL-2026-001 Вечернее платье 7000.00
+2 SM-2026-001 Смокинг 8400.00
+9 CR-2026-004 Карнавальный костюм 6400.00
+>>> 
+>>> === Запрос 4. Связь многие-ко-многим через prefetch_related ===
+>>> >>> ... ... SM-2026-001 - Свадьба
+SM-2026-002 - Свадьба
+SM-2026-003 - Тематическая вечеринка
+SM-2026-004 - Свадьба
+SM-2026-005 - Свадьба
+SM-2026-006 - Ретро
+SM-2026-007 - Свадьба
+SM-2026-008 - Тематическая вечеринка
+SM-2026-009 - Свадьба
+SM-2026-010 - Тематическая вечеринка
+>>> 
+>>> === Запрос 5. Аннотация + фильтрация по агрегату (HAVING) ===
+>>> >>> SELECT "app_catalog_category"."name" AS "costume__category__name", COUNT("app_bookings_booking"."id") AS "bookings_count", (CAST(SUM("app_bookings_booking"."total_price") FILTER (WHERE "app_bookings_booking"."status" IN (issued, returned)) AS NUMERIC)) AS "revenue" FROM "app_bookings_booking" INNER JOIN "app_catalog_costume" ON ("app_bookings_booking"."costume_id" = "app_catalog_costume"."id") INNER JOIN "app_catalog_category" ON ("app_catalog_costume"."category_id" = "app_catalog_category"."id") GROUP BY 1 HAVING COUNT("app_bookings_booking"."id") >= 2 ORDER BY 3 DESC
+>>> ... ... 

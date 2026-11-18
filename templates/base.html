@@ -1,0 +1,51 @@
+{% load static %}<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ателье №13 — прокат вечерних платьев, смокингов и карнавальных костюмов. Примерка до трёх нарядов, аренда от суток, залог возвращается после осмотра.">
+<title>{% block title %}Ателье №13 · прокат нарядов{% endblock %}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<a class="skip" href="#main">Перейти к содержимому</a>
+<header class="site-header">
+  <div class="wrap header-in">
+    <a class="brand" href="{% url 'home' %}">Ателье <em>№13</em></a>
+    <input class="nav-check" type="checkbox" id="nav-check" aria-label="Открыть меню" aria-controls="siteNav">
+    <label class="burger" for="nav-check"><span></span><span></span><span></span></label>
+    <nav class="nav" id="siteNav" aria-label="Основная навигация">
+      <ul>
+        <li><a href="{% url 'home' %}" aria-current="page">Главная</a></li>
+        <li><a href="#cats">Категории</a></li>
+        <li><a href="#popular">Свободны сейчас</a></li>
+        <li><a href="#how">Как это работает</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+{% if messages %}{% for m in messages %}<p class="note note-{% if m.tags == 'error' %}err{% else %}ok{% endif %}" role="status">{{ m }}</p>{% endfor %}{% endif %}
+{% block content %}{% endblock %}
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-in">
+    <div>
+      <p class="footer-brand">Ателье №13 · прокат нарядов</p>
+      <p class="muted">Санкт-Петербург, ул. Театральная, 13 · daily 10:00–20:00</p>
+    </div>
+    <nav aria-label="Разделы страницы">
+      <ul>
+        <li><a href="#cats">Категории</a></li>
+        <li><a href="#popular">Свободные наряды</a></li>
+        <li><a href="#how">Как это работает</a></li>
+      </ul>
+    </nav>
+    <p class="muted"><a href="tel:+79000000000">+7 900 000-00-00</a><br>Наряды возвращаются после осмотра, залог — в день возврата</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,2383 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$H67MMI9hTPptkY4vGAd1aL$6lun+Tqdt5is8MaTYolbEfPIK+PGHvomjLPvUxYQVq0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@rental.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-14T15:03:45.913Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$nf5YjClCuo0Idsc4INw7hJ$eThBHgc7cSuxgyCIUwmDchnVBI8NG1YSV1+ngluocIM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "ivanov",
+    "first_name": "",
+    "last_name": "",
+    "email": "ivanov@mail.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-14T15:03:46.182Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$WdFovPzfrGtIZF1HZmmA10$H4SvKiwQXyCtC7W1haA46JvkpmPwN9hTvo4NIR+pmwA=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "smirnova",
+    "first_name": "",
+    "last_name": "",
+    "email": "smirnova@mail.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-14T15:03:46.445Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$mlJLxeZWA1NWdeohU46RBx$Fh++8eJdPeunmnxuuweMSq5lIf+8+NJXDrZCwuzUzu4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "petrova",
+    "first_name": "",
+    "last_name": "",
+    "email": "petrova@rental.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-14T15:03:46.705Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$AOThWpQOgLKULbiOfSnbhT$AHG0U9oh6hCA6/mcjhBZlhC7hJNAFFA08pX8AM4W8Yg=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "sidorov",
+    "first_name": "",
+    "last_name": "",
+    "email": "sidorov@rental.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-11-14T15:03:46.971Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "app_catalog.category",
+  "pk": 1,
+  "fields": {
+    "name": "Вечернее платье",
+    "description": "Платья для торжеств"
+  }
+},
+{
+  "model": "app_catalog.category",
+  "pk": 2,
+  "fields": {
+    "name": "Смокинг",
+    "description": "Мужские смокинги"
+  }
+},
+{
+  "model": "app_catalog.category",
+  "pk": 3,
+  "fields": {
+    "name": "Карнавальный костюм",
+    "description": "Карнавальные и исторические"
+  }
+},
+{
+  "model": "app_catalog.category",
+  "pk": 4,
+  "fields": {
+    "name": "Коктейльное платье",
+    "description": "Коктейльные платья"
+  }
+},
+{
+  "model": "app_catalog.theme",
+  "pk": 1,
+  "fields": {
+    "name": "Свадьба",
+    "description": ""
+  }
+},
+{
+  "model": "app_catalog.theme",
+  "pk": 2,
+  "fields": {
+    "name": "Выпускной",
+    "description": ""
+  }
+},
+{
+  "model": "app_catalog.theme",
+  "pk": 3,
+  "fields": {
+    "name": "Хэллоуин",
+    "description": ""
+  }
+},
+{
+  "model": "app_catalog.theme",
+  "pk": 4,
+  "fields": {
+    "name": "Ретро",
+    "description": ""
+  }
+},
+{
+  "model": "app_catalog.theme",
+  "pk": 5,
+  "fields": {
+    "name": "Новогодний",
+    "description": ""
+  }
+},
+{
+  "model": "app_catalog.theme",
+  "pk": 6,
+  "fields": {
+    "name": "Тематическая вечеринка",
+    "description": ""
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 1,
+  "fields": {
+    "article": "PL-2026-001",
+    "name": "Платье «Аврора»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 1,
+    "daily_price": "3500.00",
+    "deposit_amount": "15000.00",
+    "completeness": "Платье, пояс, перчатки",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 2,
+  "fields": {
+    "article": "PL-2026-002",
+    "name": "Платье «Виктория»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 1,
+    "daily_price": "3200.00",
+    "deposit_amount": "14000.00",
+    "completeness": "Платье",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 3,
+  "fields": {
+    "article": "PL-2026-003",
+    "name": "Платье «Беатрис»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 1,
+    "daily_price": "2800.00",
+    "deposit_amount": "12000.00",
+    "completeness": "Платье, боа",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 4,
+  "fields": {
+    "article": "PL-2026-004",
+    "name": "Платье «Селена»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 1,
+    "daily_price": "4000.00",
+    "deposit_amount": "18000.00",
+    "completeness": "Платье, колье",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 5,
+  "fields": {
+    "article": "PL-2026-005",
+    "name": "Платье «Диана»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 1,
+    "daily_price": "2500.00",
+    "deposit_amount": "10000.00",
+    "completeness": "Платье",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 6,
+  "fields": {
+    "article": "PL-2026-006",
+    "name": "Платье «Ева»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 1,
+    "daily_price": "3900.00",
+    "deposit_amount": "16000.00",
+    "completeness": "Платье, шлейф",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 7,
+  "fields": {
+    "article": "PL-2026-007",
+    "name": "Платье «Флора»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 1,
+    "daily_price": "3700.00",
+    "deposit_amount": "15000.00",
+    "completeness": "Платье",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 8,
+  "fields": {
+    "article": "PL-2026-008",
+    "name": "Платье «Грация»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 1,
+    "daily_price": "4500.00",
+    "deposit_amount": "20000.00",
+    "completeness": "Платье, перчатки, диадема",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 9,
+  "fields": {
+    "article": "PL-2026-009",
+    "name": "Платье «Изабелла»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 1,
+    "daily_price": "3600.00",
+    "deposit_amount": "15000.00",
+    "completeness": "Платье",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 10,
+  "fields": {
+    "article": "PL-2026-010",
+    "name": "Платье «Лилия»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 1,
+    "daily_price": "3300.00",
+    "deposit_amount": "14000.00",
+    "completeness": "Платье, юбка",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 11,
+  "fields": {
+    "article": "PL-2026-011",
+    "name": "Платье «Мелоди»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 1,
+    "daily_price": "3100.00",
+    "deposit_amount": "13000.00",
+    "completeness": "Платье",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 12,
+  "fields": {
+    "article": "PL-2026-012",
+    "name": "Платье «Николь»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 1,
+    "daily_price": "2900.00",
+    "deposit_amount": "12000.00",
+    "completeness": "Платье, палантин",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 13,
+  "fields": {
+    "article": "SM-2026-001",
+    "name": "Смокинг «Классик»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 2,
+    "daily_price": "4200.00",
+    "deposit_amount": "18000.00",
+    "completeness": "Пиджак, брюки, бабочка",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 14,
+  "fields": {
+    "article": "SM-2026-002",
+    "name": "Смокинг «Премиум»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 2,
+    "daily_price": "5000.00",
+    "deposit_amount": "22000.00",
+    "completeness": "Полный комплект",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 15,
+  "fields": {
+    "article": "SM-2026-003",
+    "name": "Смокинг «Модерн»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 2,
+    "daily_price": "4500.00",
+    "deposit_amount": "20000.00",
+    "completeness": "Пиджак, брюки, запонки",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 16,
+  "fields": {
+    "article": "SM-2026-004",
+    "name": "Смокинг «Элегант»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 2,
+    "daily_price": "4300.00",
+    "deposit_amount": "19000.00",
+    "completeness": "Полный комплект",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 17,
+  "fields": {
+    "article": "SM-2026-005",
+    "name": "Смокинг «Блэк»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 2,
+    "daily_price": "5500.00",
+    "deposit_amount": "25000.00",
+    "completeness": "Полный комплект",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 18,
+  "fields": {
+    "article": "SM-2026-006",
+    "name": "Смокинг «Стандарт»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 2,
+    "daily_price": "3800.00",
+    "deposit_amount": "16000.00",
+    "completeness": "Пиджак, брюки",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 19,
+  "fields": {
+    "article": "SM-2026-007",
+    "name": "Смокинг «Люкс»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 2,
+    "daily_price": "6000.00",
+    "deposit_amount": "28000.00",
+    "completeness": "Полный комплект",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 20,
+  "fields": {
+    "article": "SM-2026-008",
+    "name": "Смокинг «Винтаж»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 2,
+    "daily_price": "4100.00",
+    "deposit_amount": "18000.00",
+    "completeness": "Полный комплект",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 21,
+  "fields": {
+    "article": "SM-2026-009",
+    "name": "Смокинг «Оксфорд»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 2,
+    "daily_price": "4700.00",
+    "deposit_amount": "21000.00",
+    "completeness": "Полный комплект",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 22,
+  "fields": {
+    "article": "SM-2026-010",
+    "name": "Смокинг «Монако»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 2,
+    "daily_price": "4400.00",
+    "deposit_amount": "19000.00",
+    "completeness": "Полный комплект",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 23,
+  "fields": {
+    "article": "CR-2026-001",
+    "name": "Костюм «Пират»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 3,
+    "daily_price": "2800.00",
+    "deposit_amount": "12000.00",
+    "completeness": "Рубашка, жилет, брюки, шляпа",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 24,
+  "fields": {
+    "article": "CR-2026-002",
+    "name": "Костюм «Мушкетёр»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 3,
+    "daily_price": "3000.00",
+    "deposit_amount": "13000.00",
+    "completeness": "Полный комплект со шпагой",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 25,
+  "fields": {
+    "article": "CR-2026-003",
+    "name": "Костюм «Ведьма»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 3,
+    "daily_price": "2500.00",
+    "deposit_amount": "10000.00",
+    "completeness": "Платье, шляпа, метла",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 26,
+  "fields": {
+    "article": "CR-2026-004",
+    "name": "Костюм «Дед Мороз»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 3,
+    "daily_price": "3200.00",
+    "deposit_amount": "14000.00",
+    "completeness": "Шуба, шапка, мешок",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 27,
+  "fields": {
+    "article": "CR-2026-005",
+    "name": "Костюм «Снегурочка»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 3,
+    "daily_price": "2900.00",
+    "deposit_amount": "12000.00",
+    "completeness": "Шубка, шапка",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 28,
+  "fields": {
+    "article": "CR-2026-006",
+    "name": "Костюм «Гарем»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 3,
+    "daily_price": "2700.00",
+    "deposit_amount": "11000.00",
+    "completeness": "Топ, шаровары, украшения",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 29,
+  "fields": {
+    "article": "CR-2026-007",
+    "name": "Костюм «Ковбой»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 3,
+    "daily_price": "2600.00",
+    "deposit_amount": "11000.00",
+    "completeness": "Рубашка, жилет, брюки, шляпа",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 30,
+  "fields": {
+    "article": "CR-2026-008",
+    "name": "Костюм «Матрос»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 3,
+    "daily_price": "2400.00",
+    "deposit_amount": "10000.00",
+    "completeness": "Тельняшка, брюки, бескозырка",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 31,
+  "fields": {
+    "article": "CK-2026-001",
+    "name": "Платье «Мини-блэк»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 4,
+    "daily_price": "2900.00",
+    "deposit_amount": "12000.00",
+    "completeness": "Платье",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 32,
+  "fields": {
+    "article": "CK-2026-002",
+    "name": "Платье «Роза»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 4,
+    "daily_price": "3100.00",
+    "deposit_amount": "13000.00",
+    "completeness": "Платье",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 33,
+  "fields": {
+    "article": "CK-2026-003",
+    "name": "Платье «Сапфир»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 4,
+    "daily_price": "2800.00",
+    "deposit_amount": "12000.00",
+    "completeness": "Платье",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 34,
+  "fields": {
+    "article": "CK-2026-004",
+    "name": "Платье «Изумруд»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 4,
+    "daily_price": "3000.00",
+    "deposit_amount": "13000.00",
+    "completeness": "Платье",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costume",
+  "pk": 35,
+  "fields": {
+    "article": "CK-2026-005",
+    "name": "Платье «Рубин»",
+    "description": "Демонстрационное описание",
+    "photo": "",
+    "category": 4,
+    "daily_price": "2700.00",
+    "deposit_amount": "11000.00",
+    "completeness": "Платье",
+    "status": "available"
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 1,
+  "fields": {
+    "costume": 1,
+    "theme": 1
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 2,
+  "fields": {
+    "costume": 1,
+    "theme": 2
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 3,
+  "fields": {
+    "costume": 2,
+    "theme": 1
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 4,
+  "fields": {
+    "costume": 3,
+    "theme": 2
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 5,
+  "fields": {
+    "costume": 4,
+    "theme": 1
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 6,
+  "fields": {
+    "costume": 5,
+    "theme": 6
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 7,
+  "fields": {
+    "costume": 6,
+    "theme": 1
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 8,
+  "fields": {
+    "costume": 7,
+    "theme": 2
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 9,
+  "fields": {
+    "costume": 8,
+    "theme": 1
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 10,
+  "fields": {
+    "costume": 9,
+    "theme": 1
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 11,
+  "fields": {
+    "costume": 10,
+    "theme": 2
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 12,
+  "fields": {
+    "costume": 11,
+    "theme": 6
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 13,
+  "fields": {
+    "costume": 12,
+    "theme": 2
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 14,
+  "fields": {
+    "costume": 13,
+    "theme": 1
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 15,
+  "fields": {
+    "costume": 14,
+    "theme": 1
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 16,
+  "fields": {
+    "costume": 15,
+    "theme": 6
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 17,
+  "fields": {
+    "costume": 16,
+    "theme": 1
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 18,
+  "fields": {
+    "costume": 17,
+    "theme": 1
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 19,
+  "fields": {
+    "costume": 18,
+    "theme": 4
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 20,
+  "fields": {
+    "costume": 19,
+    "theme": 1
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 21,
+  "fields": {
+    "costume": 20,
+    "theme": 6
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 22,
+  "fields": {
+    "costume": 21,
+    "theme": 1
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 23,
+  "fields": {
+    "costume": 22,
+    "theme": 6
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 24,
+  "fields": {
+    "costume": 23,
+    "theme": 6
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 25,
+  "fields": {
+    "costume": 24,
+    "theme": 6
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 26,
+  "fields": {
+    "costume": 25,
+    "theme": 3
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 27,
+  "fields": {
+    "costume": 26,
+    "theme": 5
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 28,
+  "fields": {
+    "costume": 27,
+    "theme": 5
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 29,
+  "fields": {
+    "costume": 28,
+    "theme": 6
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 30,
+  "fields": {
+    "costume": 29,
+    "theme": 6
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 31,
+  "fields": {
+    "costume": 30,
+    "theme": 6
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 32,
+  "fields": {
+    "costume": 31,
+    "theme": 6
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 33,
+  "fields": {
+    "costume": 32,
+    "theme": 6
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 34,
+  "fields": {
+    "costume": 33,
+    "theme": 2
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 35,
+  "fields": {
+    "costume": 34,
+    "theme": 6
+  }
+},
+{
+  "model": "app_catalog.costumetheme",
+  "pk": 36,
+  "fields": {
+    "costume": 35,
+    "theme": 2
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 1,
+  "fields": {
+    "costume": 1,
+    "size": 44,
+    "height_from": 165,
+    "height_to": 175,
+    "bust_girth": 88,
+    "waist_girth": 68,
+    "hips_girth": 94,
+    "item_length": 140
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 2,
+  "fields": {
+    "costume": 2,
+    "size": 46,
+    "height_from": 165,
+    "height_to": 175,
+    "bust_girth": 92,
+    "waist_girth": 72,
+    "hips_girth": 98,
+    "item_length": 135
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 3,
+  "fields": {
+    "costume": 3,
+    "size": 48,
+    "height_from": 160,
+    "height_to": 170,
+    "bust_girth": 96,
+    "waist_girth": 76,
+    "hips_girth": 102,
+    "item_length": 130
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 4,
+  "fields": {
+    "costume": 4,
+    "size": 44,
+    "height_from": 170,
+    "height_to": 180,
+    "bust_girth": 88,
+    "waist_girth": 68,
+    "hips_girth": 94,
+    "item_length": 150
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 5,
+  "fields": {
+    "costume": 5,
+    "size": 42,
+    "height_from": 160,
+    "height_to": 170,
+    "bust_girth": 84,
+    "waist_girth": 64,
+    "hips_girth": 90,
+    "item_length": 90
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 6,
+  "fields": {
+    "costume": 6,
+    "size": 46,
+    "height_from": 165,
+    "height_to": 175,
+    "bust_girth": 92,
+    "waist_girth": 72,
+    "hips_girth": 98,
+    "item_length": 145
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 7,
+  "fields": {
+    "costume": 7,
+    "size": 48,
+    "height_from": 165,
+    "height_to": 175,
+    "bust_girth": 96,
+    "waist_girth": 76,
+    "hips_girth": 102,
+    "item_length": 140
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 8,
+  "fields": {
+    "costume": 8,
+    "size": 50,
+    "height_from": 170,
+    "height_to": 180,
+    "bust_girth": 100,
+    "waist_girth": 80,
+    "hips_girth": 106,
+    "item_length": 150
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 9,
+  "fields": {
+    "costume": 9,
+    "size": 44,
+    "height_from": 160,
+    "height_to": 170,
+    "bust_girth": 88,
+    "waist_girth": 68,
+    "hips_girth": 94,
+    "item_length": 135
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 10,
+  "fields": {
+    "costume": 10,
+    "size": 46,
+    "height_from": 165,
+    "height_to": 175,
+    "bust_girth": 92,
+    "waist_girth": 72,
+    "hips_girth": 98,
+    "item_length": 140
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 11,
+  "fields": {
+    "costume": 11,
+    "size": 48,
+    "height_from": 160,
+    "height_to": 170,
+    "bust_girth": 96,
+    "waist_girth": 76,
+    "hips_girth": 102,
+    "item_length": 130
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 12,
+  "fields": {
+    "costume": 12,
+    "size": 44,
+    "height_from": 165,
+    "height_to": 175,
+    "bust_girth": 88,
+    "waist_girth": 68,
+    "hips_girth": 94,
+    "item_length": 135
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 13,
+  "fields": {
+    "costume": 13,
+    "size": 50,
+    "height_from": 175,
+    "height_to": 185,
+    "bust_girth": 100,
+    "waist_girth": 86,
+    "hips_girth": 102,
+    "item_length": null
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 14,
+  "fields": {
+    "costume": 14,
+    "size": 52,
+    "height_from": 180,
+    "height_to": 190,
+    "bust_girth": 104,
+    "waist_girth": 90,
+    "hips_girth": 106,
+    "item_length": null
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 15,
+  "fields": {
+    "costume": 15,
+    "size": 48,
+    "height_from": 175,
+    "height_to": 185,
+    "bust_girth": 96,
+    "waist_girth": 82,
+    "hips_girth": 100,
+    "item_length": null
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 16,
+  "fields": {
+    "costume": 16,
+    "size": 50,
+    "height_from": 175,
+    "height_to": 185,
+    "bust_girth": 100,
+    "waist_girth": 86,
+    "hips_girth": 102,
+    "item_length": null
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 17,
+  "fields": {
+    "costume": 17,
+    "size": 54,
+    "height_from": 180,
+    "height_to": 190,
+    "bust_girth": 108,
+    "waist_girth": 94,
+    "hips_girth": 110,
+    "item_length": null
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 18,
+  "fields": {
+    "costume": 18,
+    "size": 48,
+    "height_from": 170,
+    "height_to": 180,
+    "bust_girth": 96,
+    "waist_girth": 82,
+    "hips_girth": 100,
+    "item_length": null
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 19,
+  "fields": {
+    "costume": 19,
+    "size": 52,
+    "height_from": 180,
+    "height_to": 190,
+    "bust_girth": 104,
+    "waist_girth": 90,
+    "hips_girth": 106,
+    "item_length": null
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 20,
+  "fields": {
+    "costume": 20,
+    "size": 50,
+    "height_from": 175,
+    "height_to": 185,
+    "bust_girth": 100,
+    "waist_girth": 86,
+    "hips_girth": 102,
+    "item_length": null
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 21,
+  "fields": {
+    "costume": 21,
+    "size": 52,
+    "height_from": 180,
+    "height_to": 190,
+    "bust_girth": 104,
+    "waist_girth": 90,
+    "hips_girth": 106,
+    "item_length": null
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 22,
+  "fields": {
+    "costume": 22,
+    "size": 50,
+    "height_from": 175,
+    "height_to": 185,
+    "bust_girth": 100,
+    "waist_girth": 86,
+    "hips_girth": 102,
+    "item_length": null
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 23,
+  "fields": {
+    "costume": 23,
+    "size": 50,
+    "height_from": 175,
+    "height_to": 185,
+    "bust_girth": 100,
+    "waist_girth": 86,
+    "hips_girth": 102,
+    "item_length": null
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 24,
+  "fields": {
+    "costume": 24,
+    "size": 52,
+    "height_from": 175,
+    "height_to": 185,
+    "bust_girth": 104,
+    "waist_girth": 90,
+    "hips_girth": 106,
+    "item_length": null
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 25,
+  "fields": {
+    "costume": 25,
+    "size": 46,
+    "height_from": 165,
+    "height_to": 175,
+    "bust_girth": 92,
+    "waist_girth": 72,
+    "hips_girth": 98,
+    "item_length": 120
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 26,
+  "fields": {
+    "costume": 26,
+    "size": 54,
+    "height_from": 175,
+    "height_to": 185,
+    "bust_girth": 108,
+    "waist_girth": 94,
+    "hips_girth": 110,
+    "item_length": null
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 27,
+  "fields": {
+    "costume": 27,
+    "size": 44,
+    "height_from": 160,
+    "height_to": 170,
+    "bust_girth": 88,
+    "waist_girth": 68,
+    "hips_girth": 94,
+    "item_length": 110
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 28,
+  "fields": {
+    "costume": 28,
+    "size": 46,
+    "height_from": 160,
+    "height_to": 170,
+    "bust_girth": 92,
+    "waist_girth": 72,
+    "hips_girth": 98,
+    "item_length": 115
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 29,
+  "fields": {
+    "costume": 29,
+    "size": 50,
+    "height_from": 175,
+    "height_to": 185,
+    "bust_girth": 100,
+    "waist_girth": 86,
+    "hips_girth": 102,
+    "item_length": null
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 30,
+  "fields": {
+    "costume": 30,
+    "size": 48,
+    "height_from": 170,
+    "height_to": 180,
+    "bust_girth": 96,
+    "waist_girth": 82,
+    "hips_girth": 100,
+    "item_length": null
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 31,
+  "fields": {
+    "costume": 31,
+    "size": 42,
+    "height_from": 160,
+    "height_to": 170,
+    "bust_girth": 84,
+    "waist_girth": 64,
+    "hips_girth": 90,
+    "item_length": 85
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 32,
+  "fields": {
+    "costume": 32,
+    "size": 44,
+    "height_from": 160,
+    "height_to": 170,
+    "bust_girth": 88,
+    "waist_girth": 68,
+    "hips_girth": 94,
+    "item_length": 85
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 33,
+  "fields": {
+    "costume": 33,
+    "size": 46,
+    "height_from": 165,
+    "height_to": 175,
+    "bust_girth": 92,
+    "waist_girth": 72,
+    "hips_girth": 98,
+    "item_length": 90
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 34,
+  "fields": {
+    "costume": 34,
+    "size": 48,
+    "height_from": 165,
+    "height_to": 175,
+    "bust_girth": 96,
+    "waist_girth": 76,
+    "hips_girth": 102,
+    "item_length": 90
+  }
+},
+{
+  "model": "app_catalog.sizeparams",
+  "pk": 35,
+  "fields": {
+    "costume": 35,
+    "size": 44,
+    "height_from": 160,
+    "height_to": 170,
+    "bust_girth": 88,
+    "waist_girth": 68,
+    "hips_girth": 94,
+    "item_length": 85
+  }
+},
+{
+  "model": "app_accounts.profile",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "role": "admin",
+    "phone": "+79001111111",
+    "height_cm": null,
+    "clothing_size": null
+  }
+},
+{
+  "model": "app_accounts.profile",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "role": "client",
+    "phone": "+79002222222",
+    "height_cm": 175,
+    "clothing_size": 48
+  }
+},
+{
+  "model": "app_accounts.profile",
+  "pk": 3,
+  "fields": {
+    "user": 3,
+    "role": "client",
+    "phone": "+79005555555",
+    "height_cm": 168,
+    "clothing_size": 44
+  }
+},
+{
+  "model": "app_accounts.profile",
+  "pk": 4,
+  "fields": {
+    "user": 4,
+    "role": "consultant",
+    "phone": "+79003333333",
+    "height_cm": null,
+    "clothing_size": null
+  }
+},
+{
+  "model": "app_accounts.profile",
+  "pk": 5,
+  "fields": {
+    "user": 5,
+    "role": "master",
+    "phone": "+79004444444",
+    "height_cm": null,
+    "clothing_size": null
+  }
+},
+{
+  "model": "app_bookings.fittingslot",
+  "pk": 1,
+  "fields": {
+    "slot_datetime": "2026-11-20T14:00:00Z",
+    "consultant": 4,
+    "client": 2,
+    "status": "booked",
+    "result": null
+  }
+},
+{
+  "model": "app_bookings.fittingslot",
+  "pk": 2,
+  "fields": {
+    "slot_datetime": "2026-11-20T15:00:00Z",
+    "consultant": 4,
+    "client": 3,
+    "status": "booked",
+    "result": null
+  }
+},
+{
+  "model": "app_bookings.fittingslot",
+  "pk": 3,
+  "fields": {
+    "slot_datetime": "2026-11-21T14:00:00Z",
+    "consultant": 4,
+    "client": null,
+    "status": "free",
+    "result": null
+  }
+},
+{
+  "model": "app_bookings.fittingslot",
+  "pk": 4,
+  "fields": {
+    "slot_datetime": "2026-11-21T15:00:00Z",
+    "consultant": 4,
+    "client": null,
+    "status": "free",
+    "result": null
+  }
+},
+{
+  "model": "app_bookings.fittingslot",
+  "pk": 5,
+  "fields": {
+    "slot_datetime": "2026-11-22T14:00:00Z",
+    "consultant": 4,
+    "client": null,
+    "status": "free",
+    "result": null
+  }
+},
+{
+  "model": "app_bookings.fittingslot",
+  "pk": 6,
+  "fields": {
+    "slot_datetime": "2026-11-22T15:00:00Z",
+    "consultant": 4,
+    "client": null,
+    "status": "free",
+    "result": null
+  }
+},
+{
+  "model": "app_bookings.fittingcostume",
+  "pk": 1,
+  "fields": {
+    "slot": 1,
+    "costume": 1
+  }
+},
+{
+  "model": "app_bookings.fittingcostume",
+  "pk": 2,
+  "fields": {
+    "slot": 1,
+    "costume": 2
+  }
+},
+{
+  "model": "app_bookings.fittingcostume",
+  "pk": 3,
+  "fields": {
+    "slot": 1,
+    "costume": 3
+  }
+},
+{
+  "model": "app_bookings.fittingcostume",
+  "pk": 4,
+  "fields": {
+    "slot": 2,
+    "costume": 31
+  }
+},
+{
+  "model": "app_bookings.fittingcostume",
+  "pk": 5,
+  "fields": {
+    "slot": 2,
+    "costume": 32
+  }
+},
+{
+  "model": "app_bookings.fittingcostume",
+  "pk": 6,
+  "fields": {
+    "slot": 3,
+    "costume": 13
+  }
+},
+{
+  "model": "app_bookings.fittingcostume",
+  "pk": 7,
+  "fields": {
+    "slot": 3,
+    "costume": 14
+  }
+},
+{
+  "model": "app_bookings.fittingcostume",
+  "pk": 8,
+  "fields": {
+    "slot": 4,
+    "costume": 5
+  }
+},
+{
+  "model": "app_bookings.fittingcostume",
+  "pk": 9,
+  "fields": {
+    "slot": 5,
+    "costume": 25
+  }
+},
+{
+  "model": "app_bookings.fittingcostume",
+  "pk": 10,
+  "fields": {
+    "slot": 6,
+    "costume": 26
+  }
+},
+{
+  "model": "app_bookings.booking",
+  "pk": 1,
+  "fields": {
+    "client": 2,
+    "costume": 1,
+    "date_start": "2026-12-05",
+    "date_end": "2026-12-07",
+    "blocked_until": "2026-12-09",
+    "actual_return_date": null,
+    "total_price": "7000.00",
+    "status": "pending",
+    "terms_accepted": true,
+    "created_at": "2026-11-14T15:03:47.859Z"
+  }
+},
+{
+  "model": "app_bookings.booking",
+  "pk": 2,
+  "fields": {
+    "client": 2,
+    "costume": 13,
+    "date_start": "2026-12-20",
+    "date_end": "2026-12-22",
+    "blocked_until": "2026-12-24",
+    "actual_return_date": null,
+    "total_price": "8400.00",
+    "status": "pending",
+    "terms_accepted": true,
+    "created_at": "2026-11-14T15:03:47.866Z"
+  }
+},
+{
+  "model": "app_bookings.booking",
+  "pk": 3,
+  "fields": {
+    "client": 3,
+    "costume": 5,
+    "date_start": "2026-11-25",
+    "date_end": "2026-11-27",
+    "blocked_until": "2026-11-29",
+    "actual_return_date": null,
+    "total_price": "5000.00",
+    "status": "issued",
+    "terms_accepted": true,
+    "created_at": "2026-11-14T15:03:47.870Z"
+  }
+},
+{
+  "model": "app_bookings.booking",
+  "pk": 4,
+  "fields": {
+    "client": 3,
+    "costume": 23,
+    "date_start": "2026-10-30",
+    "date_end": "2026-11-01",
+    "blocked_until": "2026-11-03",
+    "actual_return_date": "2026-11-01",
+    "total_price": "5600.00",
+    "status": "returned",
+    "terms_accepted": true,
+    "created_at": "2026-11-14T15:03:47.874Z"
+  }
+},
+{
+  "model": "app_bookings.booking",
+  "pk": 5,
+  "fields": {
+    "client": 2,
+    "costume": 31,
+    "date_start": "2026-11-15",
+    "date_end": "2026-11-17",
+    "blocked_until": "2026-11-19",
+    "actual_return_date": null,
+    "total_price": "5800.00",
+    "status": "issued",
+    "terms_accepted": true,
+    "created_at": "2026-11-14T15:03:47.878Z"
+  }
+},
+{
+  "model": "app_bookings.booking",
+  "pk": 6,
+  "fields": {
+    "client": 3,
+    "costume": 14,
+    "date_start": "2026-12-31",
+    "date_end": "2027-01-02",
+    "blocked_until": "2027-01-04",
+    "actual_return_date": null,
+    "total_price": "10000.00",
+    "status": "pending",
+    "terms_accepted": true,
+    "created_at": "2026-11-14T15:03:47.882Z"
+  }
+},
+{
+  "model": "app_bookings.booking",
+  "pk": 7,
+  "fields": {
+    "client": 2,
+    "costume": 25,
+    "date_start": "2026-10-28",
+    "date_end": "2026-10-31",
+    "blocked_until": "2026-11-02",
+    "actual_return_date": "2026-10-31",
+    "total_price": "7500.00",
+    "status": "returned",
+    "terms_accepted": true,
+    "created_at": "2026-11-14T15:03:47.885Z"
+  }
+},
+{
+  "model": "app_bookings.booking",
+  "pk": 8,
+  "fields": {
+    "client": 3,
+    "costume": 2,
+    "date_start": "2026-11-20",
+    "date_end": "2026-11-22",
+    "blocked_until": "2026-11-24",
+    "actual_return_date": null,
+    "total_price": "6400.00",
+    "status": "issued",
+    "terms_accepted": true,
+    "created_at": "2026-11-14T15:03:47.889Z"
+  }
+},
+{
+  "model": "app_bookings.booking",
+  "pk": 9,
+  "fields": {
+    "client": 2,
+    "costume": 26,
+    "date_start": "2026-12-25",
+    "date_end": "2026-12-27",
+    "blocked_until": "2026-12-29",
+    "actual_return_date": null,
+    "total_price": "6400.00",
+    "status": "pending",
+    "terms_accepted": true,
+    "created_at": "2026-11-14T15:03:47.892Z"
+  }
+},
+{
+  "model": "app_bookings.booking",
+  "pk": 10,
+  "fields": {
+    "client": 3,
+    "costume": 32,
+    "date_start": "2026-11-10",
+    "date_end": "2026-11-12",
+    "blocked_until": "2026-11-14",
+    "actual_return_date": "2026-11-12",
+    "total_price": "6200.00",
+    "status": "returned",
+    "terms_accepted": true,
+    "created_at": "2026-11-14T15:03:47.896Z"
+  }
+},
+{
+  "model": "app_inspections.deposit",
+  "pk": 1,
+  "fields": {
+    "booking": 1,
+    "amount": "15000.00",
+    "withheld": "0.00",
+    "to_return": "15000.00",
+    "status": "paid"
+  }
+},
+{
+  "model": "app_inspections.deposit",
+  "pk": 2,
+  "fields": {
+    "booking": 2,
+    "amount": "18000.00",
+    "withheld": "0.00",
+    "to_return": "18000.00",
+    "status": "paid"
+  }
+},
+{
+  "model": "app_inspections.deposit",
+  "pk": 3,
+  "fields": {
+    "booking": 3,
+    "amount": "10000.00",
+    "withheld": "0.00",
+    "to_return": "10000.00",
+    "status": "paid"
+  }
+},
+{
+  "model": "app_inspections.deposit",
+  "pk": 4,
+  "fields": {
+    "booking": 4,
+    "amount": "12000.00",
+    "withheld": "500.00",
+    "to_return": "11500.00",
+    "status": "partially_withheld"
+  }
+},
+{
+  "model": "app_inspections.deposit",
+  "pk": 5,
+  "fields": {
+    "booking": 5,
+    "amount": "12000.00",
+    "withheld": "0.00",
+    "to_return": "12000.00",
+    "status": "paid"
+  }
+},
+{
+  "model": "app_inspections.deposit",
+  "pk": 6,
+  "fields": {
+    "booking": 6,
+    "amount": "22000.00",
+    "withheld": "0.00",
+    "to_return": "22000.00",
+    "status": "paid"
+  }
+},
+{
+  "model": "app_inspections.deposit",
+  "pk": 7,
+  "fields": {
+    "booking": 7,
+    "amount": "10000.00",
+    "withheld": "3600.00",
+    "to_return": "6400.00",
+    "status": "partially_withheld"
+  }
+},
+{
+  "model": "app_inspections.deposit",
+  "pk": 8,
+  "fields": {
+    "booking": 8,
+    "amount": "14000.00",
+    "withheld": "0.00",
+    "to_return": "14000.00",
+    "status": "paid"
+  }
+},
+{
+  "model": "app_inspections.deposit",
+  "pk": 9,
+  "fields": {
+    "booking": 9,
+    "amount": "14000.00",
+    "withheld": "0.00",
+    "to_return": "14000.00",
+    "status": "paid"
+  }
+},
+{
+  "model": "app_inspections.deposit",
+  "pk": 10,
+  "fields": {
+    "booking": 10,
+    "amount": "13000.00",
+    "withheld": "3700.00",
+    "to_return": "9300.00",
+    "status": "partially_withheld"
+  }
+},
+{
+  "model": "app_inspections.damageprice",
+  "pk": 1,
+  "fields": {
+    "damage_type": "Пятно",
+    "severity": "Лёгкое",
+    "repair_cost": "500.00",
+    "is_archived": false
+  }
+},
+{
+  "model": "app_inspections.damageprice",
+  "pk": 2,
+  "fields": {
+    "damage_type": "Пятно",
+    "severity": "Среднее",
+    "repair_cost": "1500.00",
+    "is_archived": false
+  }
+},
+{
+  "model": "app_inspections.damageprice",
+  "pk": 3,
+  "fields": {
+    "damage_type": "Пятно",
+    "severity": "Сложное",
+    "repair_cost": "3000.00",
+    "is_archived": false
+  }
+},
+{
+  "model": "app_inspections.damageprice",
+  "pk": 4,
+  "fields": {
+    "damage_type": "Разрыв",
+    "severity": "До 5 см",
+    "repair_cost": "1000.00",
+    "is_archived": false
+  }
+},
+{
+  "model": "app_inspections.damageprice",
+  "pk": 5,
+  "fields": {
+    "damage_type": "Разрыв",
+    "severity": "Более 5 см",
+    "repair_cost": "2500.00",
+    "is_archived": false
+  }
+},
+{
+  "model": "app_inspections.damageprice",
+  "pk": 6,
+  "fields": {
+    "damage_type": "Порез",
+    "severity": "Лёгкий",
+    "repair_cost": "800.00",
+    "is_archived": false
+  }
+},
+{
+  "model": "app_inspections.damageprice",
+  "pk": 7,
+  "fields": {
+    "damage_type": "Порез",
+    "severity": "Средний",
+    "repair_cost": "2000.00",
+    "is_archived": false
+  }
+},
+{
+  "model": "app_inspections.damageprice",
+  "pk": 8,
+  "fields": {
+    "damage_type": "Утеря детали",
+    "severity": "Пуговица",
+    "repair_cost": "300.00",
+    "is_archived": false
+  }
+},
+{
+  "model": "app_inspections.damageprice",
+  "pk": 9,
+  "fields": {
+    "damage_type": "Утеря детали",
+    "severity": "Молния",
+    "repair_cost": "1500.00",
+    "is_archived": false
+  }
+},
+{
+  "model": "app_inspections.damageprice",
+  "pk": 10,
+  "fields": {
+    "damage_type": "Прожог",
+    "severity": "Лёгкий",
+    "repair_cost": "2000.00",
+    "is_archived": false
+  }
+},
+{
+  "model": "app_inspections.damageprice",
+  "pk": 11,
+  "fields": {
+    "damage_type": "Прожог",
+    "severity": "Сильный",
+    "repair_cost": "5000.00",
+    "is_archived": false
+  }
+},
+{
+  "model": "app_inspections.damageprice",
+  "pk": 12,
+  "fields": {
+    "damage_type": "Запах",
+    "severity": "Табак",
+    "repair_cost": "1200.00",
+    "is_archived": false
+  }
+},
+{
+  "model": "app_inspections.inspection",
+  "pk": 1,
+  "fields": {
+    "booking": 4,
+    "inspector": 4,
+    "inspection_date": "2026-11-14T15:03:47.942Z",
+    "general_condition": "Пятно от вина на подоле",
+    "conclusion": "damaged"
+  }
+},
+{
+  "model": "app_inspections.inspection",
+  "pk": 2,
+  "fields": {
+    "booking": 7,
+    "inspector": 4,
+    "inspection_date": "2026-11-14T15:03:47.956Z",
+    "general_condition": "Разрыв рукава, утеряна пуговица, сломана молния, порез",
+    "conclusion": "damaged"
+  }
+},
+{
+  "model": "app_inspections.inspection",
+  "pk": 3,
+  "fields": {
+    "booking": 10,
+    "inspector": 4,
+    "inspection_date": "2026-11-14T15:03:47.981Z",
+    "general_condition": "Лёгкое пятно, запах табака, прожог",
+    "conclusion": "damaged"
+  }
+},
+{
+  "model": "app_inspections.damage",
+  "pk": 1,
+  "fields": {
+    "inspection": 1,
+    "price_item": 1,
+    "description": "Пятно, Лёгкое",
+    "photo": "",
+    "cost": "500.00"
+  }
+},
+{
+  "model": "app_inspections.damage",
+  "pk": 2,
+  "fields": {
+    "inspection": 2,
+    "price_item": 4,
+    "description": "Разрыв, До 5 см",
+    "photo": "",
+    "cost": "1000.00"
+  }
+},
+{
+  "model": "app_inspections.damage",
+  "pk": 3,
+  "fields": {
+    "inspection": 2,
+    "price_item": 8,
+    "description": "Утеря детали, Пуговица",
+    "photo": "",
+    "cost": "300.00"
+  }
+},
+{
+  "model": "app_inspections.damage",
+  "pk": 4,
+  "fields": {
+    "inspection": 2,
+    "price_item": 9,
+    "description": "Утеря детали, Молния",
+    "photo": "",
+    "cost": "1500.00"
+  }
+},
+{
+  "model": "app_inspections.damage",
+  "pk": 5,
+  "fields": {
+    "inspection": 2,
+    "price_item": 6,
+    "description": "Порез, Лёгкий",
+    "photo": "",
+    "cost": "800.00"
+  }
+},
+{
+  "model": "app_inspections.damage",
+  "pk": 6,
+  "fields": {
+    "inspection": 3,
+    "price_item": 1,
+    "description": "Пятно, Лёгкое",
+    "photo": "",
+    "cost": "500.00"
+  }
+},
+{
+  "model": "app_inspections.damage",
+  "pk": 7,
+  "fields": {
+    "inspection": 3,
+    "price_item": 12,
+    "description": "Запах, Табак",
+    "photo": "",
+    "cost": "1200.00"
+  }
+},
+{
+  "model": "app_inspections.damage",
+  "pk": 8,
+  "fields": {
+    "inspection": 3,
+    "price_item": 10,
+    "description": "Прожог, Лёгкий",
+    "photo": "",
+    "cost": "2000.00"
+  }
+},
+{
+  "model": "app_care.caretask",
+  "pk": 1,
+  "fields": {
+    "booking": 1,
+    "costume": 1,
+    "master": 5,
+    "work_type": "steaming",
+    "planned_date": "2026-12-04",
+    "actual_date": null,
+    "status": "pending",
+    "comment": "Отпаривание перед выдачей"
+  }
+},
+{
+  "model": "app_care.caretask",
+  "pk": 2,
+  "fields": {
+    "booking": 2,
+    "costume": 13,
+    "master": 5,
+    "work_type": "steaming",
+    "planned_date": "2026-12-19",
+    "actual_date": null,
+    "status": "pending",
+    "comment": "Отпаривание перед выдачей"
+  }
+},
+{
+  "model": "app_care.caretask",
+  "pk": 3,
+  "fields": {
+    "booking": 3,
+    "costume": 5,
+    "master": 5,
+    "work_type": "steaming",
+    "planned_date": "2026-11-24",
+    "actual_date": "2026-11-24",
+    "status": "done",
+    "comment": "Отпаривание перед выдачей"
+  }
+},
+{
+  "model": "app_care.caretask",
+  "pk": 4,
+  "fields": {
+    "booking": 4,
+    "costume": 23,
+    "master": 5,
+    "work_type": "steaming",
+    "planned_date": "2026-10-29",
+    "actual_date": "2026-10-29",
+    "status": "done",
+    "comment": "Отпаривание перед выдачей"
+  }
+},
+{
+  "model": "app_care.caretask",
+  "pk": 5,
+  "fields": {
+    "booking": 5,
+    "costume": 31,
+    "master": 5,
+    "work_type": "steaming",
+    "planned_date": "2026-11-14",
+    "actual_date": "2026-11-14",
+    "status": "done",
+    "comment": "Отпаривание перед выдачей"
+  }
+},
+{
+  "model": "app_care.caretask",
+  "pk": 6,
+  "fields": {
+    "booking": 6,
+    "costume": 14,
+    "master": 5,
+    "work_type": "steaming",
+    "planned_date": "2026-12-30",
+    "actual_date": null,
+    "status": "pending",
+    "comment": "Отпаривание перед выдачей"
+  }
+},
+{
+  "model": "app_care.caretask",
+  "pk": 7,
+  "fields": {
+    "booking": 7,
+    "costume": 25,
+    "master": 5,
+    "work_type": "steaming",
+    "planned_date": "2026-10-27",
+    "actual_date": "2026-10-27",
+    "status": "done",
+    "comment": "Отпаривание перед выдачей"
+  }
+},
+{
+  "model": "app_care.caretask",
+  "pk": 8,
+  "fields": {
+    "booking": 8,
+    "costume": 2,
+    "master": 5,
+    "work_type": "steaming",
+    "planned_date": "2026-11-19",
+    "actual_date": "2026-11-19",
+    "status": "done",
+    "comment": "Отпаривание перед выдачей"
+  }
+},
+{
+  "model": "app_care.caretask",
+  "pk": 9,
+  "fields": {
+    "booking": 9,
+    "costume": 26,
+    "master": 5,
+    "work_type": "steaming",
+    "planned_date": "2026-12-24",
+    "actual_date": null,
+    "status": "pending",
+    "comment": "Отпаривание перед выдачей"
+  }
+},
+{
+  "model": "app_care.caretask",
+  "pk": 10,
+  "fields": {
+    "booking": 10,
+    "costume": 32,
+    "master": 5,
+    "work_type": "steaming",
+    "planned_date": "2026-11-09",
+    "actual_date": "2026-11-09",
+    "status": "done",
+    "comment": "Отпаривание перед выдачей"
+  }
+},
+{
+  "model": "app_care.caretask",
+  "pk": 11,
+  "fields": {
+    "booking": 4,
+    "costume": 23,
+    "master": 5,
+    "work_type": "washing",
+    "planned_date": "2026-11-02",
+    "actual_date": "2026-11-02",
+    "status": "done",
+    "comment": "Стирка после возврата"
+  }
+},
+{
+  "model": "app_care.caretask",
+  "pk": 12,
+  "fields": {
+    "booking": 7,
+    "costume": 25,
+    "master": 5,
+    "work_type": "washing",
+    "planned_date": "2026-11-01",
+    "actual_date": "2026-11-01",
+    "status": "done",
+    "comment": "Стирка после возврата"
+  }
+},
+{
+  "model": "app_care.caretask",
+  "pk": 13,
+  "fields": {
+    "booking": 10,
+    "costume": 32,
+    "master": 5,
+    "work_type": "washing",
+    "planned_date": "2026-11-13",
+    "actual_date": "2026-11-13",
+    "status": "done",
+    "comment": "Стирка после возврата"
+  }
+},
+{
+  "model": "app_care.caretask",
+  "pk": 14,
+  "fields": {
+    "booking": 7,
+    "costume": 25,
+    "master": 5,
+    "work_type": "repair",
+    "planned_date": "2026-11-02",
+    "actual_date": null,
+    "status": "in_progress",
+    "comment": "Замена молнии"
+  }
+}
+]
