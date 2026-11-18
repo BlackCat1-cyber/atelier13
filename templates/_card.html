@@ -1,0 +1,14 @@
+{% load static %}
+<article class="card">
+  <a class="card-photo" href="{% url 'costume' c.id %}">
+    <img src="{% static 'img/poster.svg' %}" alt="{{ c.name }} — {{ c.category.name }}, размер {{ c.size_params.size }}" width="600" height="750" loading="lazy">
+  </a>
+  <div class="card-body">
+    <p class="card-article">{{ c.article }}</p>
+    <h3><a href="{% url 'costume' c.id %}">{{ c.name }}</a></h3>
+    <p class="muted">р. {{ c.size_params.size }} · рост {{ c.size_params.height_from }}–{{ c.size_params.height_to }} см</p>
+    <p class="muted">{{ c.description|truncatechars:70 }}</p>
+    <p class="card-price">{{ c.daily_price|floatformat:2 }} ₽<span>/сутки</span></p>
+    <p class="muted">залог {{ c.deposit_amount|floatformat:0 }} ₽</p>
+  </div>
+</article>
