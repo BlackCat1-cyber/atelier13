@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Бронирование наряда · Ателье №13{% endblock %}
+{% block content %}
+<nav class="crumbs" aria-label="Хлебные крошки"><a href="{% url 'home' %}">Главная</a> / <a href="{% url 'catalog' %}">Каталог</a> / <span>Бронирование</span></nav>
+<h1>Бронирование наряда</h1>
+
+{% if costume %}
+<p class="lead">Наряд: <strong>{{ costume.name }}</strong> · {{ costume.daily_price|floatformat:0 }} ₽/сутки · залог {{ costume.deposit_amount|floatformat:0 }} ₽</p>
+{% endif %}
+
+{% if messages %}
+{% for m in messages %}
+<p class="note note-{% if m.tags == 'error' %}err{% else %}ok{% endif %}" role="status">{{ m }}</p>
+{% endfor %}
+{% endif %}
+
+<form method="post" class="fitting-form">
+  {% csrf_token %}
+  <div class="field-row">
+    <label for="b-costume">Наряд</label>
+    <select id="b-costume" name="costume_id" required>
+      <option value="">Выберите наряд</option>
+      {% for c in costumes %}
+      <option value="{{ c.id }}" {% if costume and costume.id == c.id %}selected{% endif %}>
+        {{ c.name }} — {{ c.daily_price|floatformat:0 }} ₽/сутки
+      </option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="field-row">
+    <label for="b-start">Дата начала аренды</label>
+    <input type="date" id="b-start" name="start_date" required min="{{ today }}">
+  </div>
+  <div class="field-row">
+    <label for="b-end">Дата возврата</label>
+    <input type="date" id="b-end" name="end_date" required min="{{ today }}">
+  </div>
+  <div class="field-row">
+    <label for="b-comment">Комментарий</label>
+    <textarea id="b-comment" name="comment" rows="3" placeholder="Мероприятие, особые пожелания"></textarea>
+  </div>
+  {% if total is not None %}
+  <div class="note note-ok">
+    Итого: <strong>{{ days }} сут. × {{ price }} ₽ + залог {{ deposit }} ₽ = {{ total }} ₽</strong>
+  </div>
+  {% endif %}
+  <div class="filters-actions">
+    <button class="btn" type="submit">Забронировать</button>
+  </div>
+</form>
+{% endblock %}

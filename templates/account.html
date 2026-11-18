@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Личный кабинет · Ателье №13{% endblock %}
+{% block content %}
+<nav class="crumbs" aria-label="Хлебные крошки"><a href="{% url 'home' %}">Главная</a> / <span>Личный кабинет</span></nav>
+<h1>Личный кабинет</h1>
+
+{% if messages %}
+{% for m in messages %}
+<p class="note note-{% if m.tags == 'error' %}err{% else %}ok{% endif %}" role="status">{{ m }}</p>
+{% endfor %}
+{% endif %}
+
+<div class="account-layout">
+  <section class="profile-section">
+    <h2>Профиль</h2>
+    <form method="post" class="fitting-form">
+      {% csrf_token %}
+      <div class="field-row">
+        <label for="a-name">Имя</label>
+        <input type="text" id="a-name" name="name" value="{{ user_name }}" required>
+      </div>
+      <div class="field-row">
+        <label for="a-email">Email</label>
+        <input type="email" id="a-email" name="email" value="{{ user_email }}" required>
+      </div>
+      <div class="field-row">
+        <label for="a-phone">Телефон</label>
+        <input type="tel" id="a-phone" name="phone" value="{{ user_phone }}" placeholder="+7 900 000-00-00">
+      </div>
+      <div class="filters-actions">
+        <button class="btn" type="submit">Сохранить</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="bookings-section">
+    <h2>Мои бронирования</h2>
+    {% if bookings %}
+    <div class="bookings-list">
+      {% for b in bookings %}
+      <div class="booking-card">
+        <p class="card-article">{{ b.costume }}</p>
+        <p><strong>{{ b.start }} — {{ b.end }}</strong></p>
+        <p class="muted">{{ b.days }} сут. · {{ b.total }} ₽</p>
+        <p class="note note-ok">Подтверждено</p>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="empty">У вас пока нет бронирований.</p>
+    {% endif %}
+  </section>
+</div>
+{% endblock %}
