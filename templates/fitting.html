@@ -5,12 +5,6 @@
 <h1>Запись на примерку</h1>
 <p class="lead">Выберите удобную дату и время. Длительность слота — 40 минут, можно примерить до трёх нарядов.</p>
 
-{% if messages %}
-{% for m in messages %}
-<p class="note note-{% if m.tags == 'error' %}err{% else %}ok{% endif %}" role="status">{{ m }}</p>
-{% endfor %}
-{% endif %}
-
 <form method="post" class="fitting-form">
   {% csrf_token %}
   <div class="field-row">

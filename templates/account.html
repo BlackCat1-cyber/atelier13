@@ -4,12 +4,6 @@
 <nav class="crumbs" aria-label="Хлебные крошки"><a href="{% url 'home' %}">Главная</a> / <span>Личный кабинет</span></nav>
 <h1>Личный кабинет</h1>
 
-{% if messages %}
-{% for m in messages %}
-<p class="note note-{% if m.tags == 'error' %}err{% else %}ok{% endif %}" role="status">{{ m }}</p>
-{% endfor %}
-{% endif %}
-
 <div class="account-layout">
   <section class="profile-section">
     <h2>Профиль</h2>
