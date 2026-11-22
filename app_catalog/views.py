@@ -6,6 +6,28 @@ from django.shortcuts import get_object_or_404, render
 
 from .models import Category, Costume, Theme
 
+MAX_DB_INT = 2 ** 31 - 1
+
+
+def _int_param(value):
+    """Целое число из параметра адреса. Мусор («abc», отрицательные и слишком большие числа) -> None."""
+    try:
+        number = int(value)
+    except (TypeError, ValueError):
+        return None
+    return number if 0 <= number <= MAX_DB_INT else None
+
+
+def _decimal_param(value):
+    """Неотрицательная конечная цена из параметра адреса или None («NaN», «abc», слишком большие)."""
+    try:
+        number = Decimal(value)
+    except (TypeError, InvalidOperation):
+        return None
+    if not number.is_finite() or number < 0 or number > Decimal("99999999.99"):
+        return None
+    return number
+
 
 def home(request):
     categories = Category.objects.annotate(n=Count("costumes"))
@@ -30,17 +52,18 @@ def _filtered(params):
     q = (params.get("q") or "").strip()
     if q:
         qs = qs.filter(Q(name__icontains=q) | Q(article__icontains=q) | Q(description__icontains=q))
-    if params.get("category"):
-        qs = qs.filter(category_id=params["category"])
-    if params.get("theme"):
-        qs = qs.filter(themes__id=params["theme"])
-    if params.get("size"):
-        qs = qs.filter(size_params__size=params["size"])
-    if params.get("max_price"):
-        try:
-            qs = qs.filter(daily_price__lte=Decimal(params["max_price"]))
-        except InvalidOperation:
-            pass
+    category = _int_param(params.get("category"))
+    if category is not None:
+        qs = qs.filter(category_id=category)
+    theme = _int_param(params.get("theme"))
+    if theme is not None:
+        qs = qs.filter(themes__id=theme)
+    size = _int_param(params.get("size"))
+    if size is not None:
+        qs = qs.filter(size_params__size=size)
+    max_price = _decimal_param(params.get("max_price"))
+    if max_price is not None:
+        qs = qs.filter(daily_price__lte=max_price)
     if params.get("available") == "1":
         qs = qs.filter(status="available")
     order = {"price_asc": "daily_price", "price_desc": "-daily_price",
