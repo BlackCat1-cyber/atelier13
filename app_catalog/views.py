@@ -187,6 +187,8 @@ def booking(request):
                 d2 = date.fromisoformat(end)
                 if d2 <= d1:
                     messages.error(request, "Дата возврата должна быть позже даты начала.")
+                elif d1 < date.today():
+                    messages.error(request, "Дата начала аренды не может быть в прошлом.")
                 else:
                     days = (d2 - d1).days
                     price = int(costume.daily_price)
