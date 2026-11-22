@@ -4,6 +4,8 @@ from django.core.paginator import Paginator
 from django.db.models import Count
 from django.shortcuts import get_object_or_404, render
 
+from app_bookings.models import Booking
+
 from .models import Category, Costume, Theme
 
 MAX_DB_INT = 2 ** 31 - 1
@@ -167,6 +169,19 @@ def fitting(request):
     today = date.today().isoformat()
     return render(request, "fitting.html", {"today": today, "times": times})
 
+BOOKING_BUFFER_DAYS = 2
+
+
+def _is_free(costume, start, end):
+    """Свободен ли наряд на период. Занятость считается с учётом +2 дней на химчистку и отпаривание."""
+    return not Booking.objects.filter(
+        costume=costume,
+        status__in=("pending", "issued"),
+        date_start__lte=end + timedelta(days=BOOKING_BUFFER_DAYS),
+        blocked_until__gte=start,
+    ).exists()
+
+
 def booking(request):
     costumes = Costume.objects.filter(status="available").order_by("name")
     costume = None
@@ -189,6 +204,8 @@ def booking(request):
                     messages.error(request, "Дата возврата должна быть позже даты начала.")
                 elif d1 < date.today():
                     messages.error(request, "Дата начала аренды не может быть в прошлом.")
+                elif not _is_free(costume, d1, d2):
+                    messages.error(request, "Наряд занят на выбранные даты (после возврата он 2 дня готовится к следующей аренде). Выберите другие даты.")
                 else:
                     days = (d2 - d1).days
                     price = int(costume.daily_price)
