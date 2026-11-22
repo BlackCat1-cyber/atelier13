@@ -19,11 +19,12 @@
     <label class="burger" for="nav-check"><span></span><span></span><span></span></label>
     <nav class="nav" id="siteNav" aria-label="Основная навигация">
       <ul>
-        <li><a href="{% url 'account' %}">Кабинет</a></li>
-        <li><a href="{% url 'booking' %}">Бронирование</a></li>
-        <li><a href="{% url 'fitting' %}">Примерка</a></li>
-        <li><a href="{% url 'terms' %}">Условия</a></li>
         <li><a href="{% url 'home' %}" aria-current="page">Главная</a></li>
+        <li><a href="{% url 'catalog' %}">Каталог</a></li>
+        <li><a href="{% url 'fitting' %}">Примерка</a></li>
+        <li><a href="{% url 'booking' %}">Бронирование</a></li>
+        <li><a href="{% url 'terms' %}">Условия</a></li>
+        <li><a href="{% url 'account' %}">Кабинет</a></li>
         <li><a href="#cats">Категории</a></li>
         <li><a href="#popular">Свободны сейчас</a></li>
         <li><a href="#how">Как это работает</a></li>
