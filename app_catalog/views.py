@@ -1,6 +1,9 @@
+import re
 from decimal import Decimal, InvalidOperation
 
+from django.core.exceptions import ValidationError
 from django.core.paginator import Paginator
+from django.core.validators import validate_email
 from django.db.models import Count
 from django.shortcuts import get_object_or_404, render
 
@@ -230,6 +233,24 @@ def booking(request):
         "price": price,
         "deposit": deposit,
     })
+PHONE_RE = re.compile(r"^\+?[0-9\s\-()]{10,20}$")
+
+
+def _profile_error(name, email, phone):
+    """Текст ошибки для данных профиля или None, если всё корректно."""
+    if not name:
+        return "Укажите имя."
+    if not email:
+        return "Укажите email."
+    try:
+        validate_email(email)
+    except ValidationError:
+        return "Укажите корректный email."
+    if phone and not PHONE_RE.match(phone):
+        return "Телефон: допустимы цифры, пробелы, скобки, дефис и «+» (от 10 до 20 символов)."
+    return None
+
+
 def account(request):
     user_name = "Гость"
     user_email = ""
@@ -237,10 +258,14 @@ def account(request):
     bookings = []
 
     if request.method == "POST":
-        user_name = request.POST.get("name", "Гость")
-        user_email = request.POST.get("email", "")
-        user_phone = request.POST.get("phone", "")
-        messages.success(request, "Профиль обновлён.")
+        user_name = request.POST.get("name", "").strip()
+        user_email = request.POST.get("email", "").strip()
+        user_phone = request.POST.get("phone", "").strip()
+        error = _profile_error(user_name, user_email, user_phone)
+        if error:
+            messages.error(request, error)
+        else:
+            messages.success(request, "Профиль обновлён.")
 
     bookings = [
         {"costume": "Платье «Аврора»", "start": "2026-11-25", "end": "2026-11-27", "days": 2, "total": 8000},
