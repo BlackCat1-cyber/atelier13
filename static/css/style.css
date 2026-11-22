@@ -118,7 +118,7 @@ input[type="checkbox"]{width:18px;height:18px;min-height:0;accent-color:var(--gd
 .chips li{padding:6px 12px;border:1px solid var(--ln);border-radius:999px;background:var(--ov);font-size:13px}
 .note-inf{color:var(--inf);border-color:color-mix(in srgb,var(--inf) 45%,var(--ln));background:color-mix(in srgb,var(--inf) 10%,var(--sf))}
 @media (min-width:768px){.detail{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}}
-@media (min-width:1024px){.catalog-layout{grid-template-columns:260px minmax(0,1fr)}.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (min-width:1024px){.catalog-layout{grid-template-columns:260px minmax(0,1fr)}.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:1023px){.burger{display:flex}.nav{position:fixed;top:64px;right:0;bottom:0;width:min(320px,86vw);margin:0;background:var(--ov);border-left:1px solid var(--ln);transform:translateX(102%);transition:transform .25s;padding:calc(var(--u)*2);overflow-y:auto}.nav-check:checked ~ .nav{transform:none}.nav ul{flex-direction:column;gap:6px}.nav a{border-radius:var(--r)}}
 .account-layout{display:grid;gap:calc(var(--u)*3);grid-template-columns:1fr}
 .profile-section,.bookings-section{border:1px solid var(--ln);border-radius:var(--r);background:var(--sf);padding:calc(var(--u)*2)}
