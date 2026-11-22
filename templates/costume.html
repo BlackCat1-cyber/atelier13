@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ c.name }} · Ателье №13{% endblock %}
+{% block content %}
+<nav class="crumbs" aria-label="Хлебные крошки"><a href="{% url 'home' %}">Главная</a> / <a href="{% url 'catalog' %}">Каталог</a> / <span>{{ c.name }}</span></nav>
+<div class="detail">
+  <div class="detail-gallery">
+    <img class="detail-main" src="{% static 'img/poster.svg' %}" alt="{{ c.name }}" width="600" height="750">
+    <div class="thumbs">
+      <img src="{% static 'img/poster.svg' %}" alt="{{ c.name }} ракурс 2" width="150" height="188" loading="lazy">
+      <img src="{% static 'img/poster.svg' %}" alt="{{ c.name }} ракурс 3" width="150" height="188" loading="lazy">
+      <img src="{% static 'img/poster.svg' %}" alt="{{ c.name }} ракурс 4" width="150" height="188" loading="lazy">
+    </div>
+  </div>
+  <div class="detail-info">
+    <p class="kicker">{{ c.article }} · {{ c.category.name }} · {{ c.get_status_display }}</p>
+    <h1>{{ c.name }}</h1>
+    <p class="lead">{{ c.description }}</p>
+    <p class="detail-price">{{ c.daily_price|floatformat:2 }} ₽<span>/сутки</span><span class="deposit">залог {{ c.deposit_amount|floatformat:0 }} ₽</span></p>
+    <h2>Параметры</h2>
+    <dl class="params">
+      <div><dt>Размер</dt><dd>{{ c.size_params.size }}</dd></div>
+      <div><dt>Рост</dt><dd>{{ c.size_params.height_from }}–{{ c.size_params.height_to }} см</dd></div>
+      <div><dt>Грудь</dt><dd>{{ c.size_params.bust_girth }} см</dd></div>
+      <div><dt>Талия</dt><dd>{{ c.size_params.waist_girth }} см</dd></div>
+      <div><dt>Бёдра</dt><dd>{{ c.size_params.hips_girth }} см</dd></div>
+    </dl>
+    <h2>Комплектность</h2>
+    <ul class="chips">{% for item in completeness %}<li>{{ item }}</li>{% endfor %}</ul>
+    <h2>Тематики</h2>
+    <ul class="chips">{% for t in c.themes.all %}<li>{{ t.name }}</li>{% empty %}<li>Без тематики</li>{% endfor %}</ul>
+    <div class="hero-actions">
+      <a class="btn" href="{% url 'catalog' %}?category={{ c.category.id }}">Похожие в категории</a>
+      <a class="btn btn-ghost" href="{% url 'catalog' %}">Вернуться в каталог</a>
+    </div>
+  </div>
+</div>
+<section aria-labelledby="rel-t">
+  <h2 id="rel-t">Похожие наряды</h2>
+  <div class="grid grid-3">
+    {% for c in related %}{% include "_card.html" %}{% empty %}<p class="empty">В этой категории пока один наряд.</p>{% endfor %}
+  </div>
+</section>
+{% endblock %}

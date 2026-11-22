@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}Каталог нарядов · Ателье №13{% endblock %}
+{% block content %}
+<nav class="crumbs" aria-label="Хлебные крошки"><a href="{% url 'home' %}">Главная</a> / <span>Каталог</span></nav>
+<h1>Каталог нарядов</h1>
+<div class="catalog-layout">
+  <form class="filters" method="get" action="{% url 'catalog' %}">
+    <h2 class="filters-title">Фильтры</h2>
+    <div class="field-row">
+      <label for="f-q">Поиск по названию и артикулу</label>
+      <input type="search" id="f-q" name="q" value="{{ cur_q }}" placeholder="Платье «Аврора» или PL-2026-001">
+    </div>
+    <div class="field-row">
+      <label for="f-category">Категория</label>
+      <select id="f-category" name="category">
+        <option value="">Все категории</option>
+        {% for cat in categories %}<option value="{{ cat.id }}" {% if cur_category == cat.id|stringformat:"s" %}selected{% endif %}>{{ cat.name }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="field-row">
+      <label for="f-theme">Тематика</label>
+      <select id="f-theme" name="theme">
+        <option value="">Все тематики</option>
+        {% for t in themes %}<option value="{{ t.id }}" {% if cur_theme == t.id|stringformat:"s" %}selected{% endif %}>{{ t.name }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="field-row">
+      <label for="f-size">Размер</label>
+      <select id="f-size" name="size">
+        <option value="">Любой</option>
+        {% for s in sizes %}<option value="{{ s }}" {% if cur_size == s|stringformat:"s" %}selected{% endif %}>{{ s }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="field-row">
+      <label for="f-price">Цена до, ₽/сутки</label>
+      <input type="number" id="f-price" name="max_price" min="0" step="100" value="{{ cur_price }}" placeholder="6000">
+    </div>
+    <div class="field-row check">
+      <input type="checkbox" id="f-available" name="available" value="1" {% if cur_available == "1" %}checked{% endif %}>
+      <label for="f-available">Только свободные</label>
+    </div>
+    <div class="field-row">
+      <label for="f-sort">Сортировка</label>
+      <select id="f-sort" name="sort">
+        <option value="price_asc" {% if cur_sort == "price_asc" %}selected{% endif %}>Сначала дешевле</option>
+        <option value="price_desc" {% if cur_sort == "price_desc" %}selected{% endif %}>Сначала дороже</option>
+        <option value="name" {% if cur_sort == "name" %}selected{% endif %}>По названию</option>
+        <option value="size" {% if cur_sort == "size" %}selected{% endif %}>По размеру</option>
+      </select>
+    </div>
+    <div class="filters-actions">
+      <button class="btn btn-small" type="submit">Применить</button>
+      <a class="btn btn-ghost btn-small" href="{% url 'catalog' %}">Сбросить</a>
+    </div>
+  </form>
+  <div class="catalog-main">
+    <p class="result-line">Найдено нарядов: <span>{{ page.paginator.count }}</span> · страница {{ page.number }} из {{ page.paginator.num_pages }}</p>
+    <div class="grid grid-3">
+      {% for c in page.object_list %}{% include "_card.html" %}{% empty %}
+      <p class="empty">Под фильтр ничего не попало.</p>
+      {% endfor %}
+    </div>
+    {% if page.paginator.num_pages > 1 %}
+    <nav class="pager" aria-label="Страницы каталога">
+      {% if page.has_previous %}<a class="btn btn-ghost btn-small" href="{% url 'catalog' %}?{{ qs }}page={{ page.previous_page_number }}">Назад</a>{% endif %}
+      {% for n in page.paginator.page_range %}
+        {% if n == page.number %}<span class="pager-cur" aria-current="page">{{ n }}</span>
+        {% elif n > page.number|add:"-3" and n < page.number|add:"3" %}<a class="btn btn-ghost btn-small" href="{% url 'catalog' %}?{{ qs }}page={{ n }}">{{ n }}</a>{% endif %}
+      {% endfor %}
+      {% if page.has_next %}<a class="btn btn-ghost btn-small" href="{% url 'catalog' %}?{{ qs }}page={{ page.next_page_number }}">Вперёд</a>{% endif %}
+    </nav>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
