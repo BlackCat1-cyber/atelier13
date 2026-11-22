@@ -124,16 +124,30 @@ from django.shortcuts import redirect
 from datetime import date, timedelta, datetime
 
 
+MAX_FITTING_COSTUMES = 3
+
+
+def _fitting_count(value):
+    """Количество нарядов для примерки (1–3) или None, если значение некорректно."""
+    try:
+        number = int(value)
+    except (TypeError, ValueError):
+        return None
+    return number if 1 <= number <= MAX_FITTING_COSTUMES else None
+
+
 def fitting(request):
     if request.method == "POST":
         fitting_date = request.POST.get("fitting_date")
         fitting_time = request.POST.get("fitting_time")
         count = request.POST.get("costume_count")
-        if fitting_date and fitting_time and count:
+        if not (fitting_date and fitting_time and count):
+            messages.error(request, "Заполните все обязательные поля.")
+        elif _fitting_count(count) is None:
+            messages.error(request, f"Количество нарядов должно быть целым числом от 1 до {MAX_FITTING_COSTUMES}.")
+        else:
             messages.success(request, f"Вы записаны на примерку {fitting_date} в {fitting_time}. Мы свяжемся с вами для подтверждения.")
             return redirect("fitting")
-        else:
-            messages.error(request, "Заполните все обязательные поля.")
     today = date.today().isoformat()
     times = [f"{h:02d}:00" for h in range(10, 20)]
     return render(request, "fitting.html", {"today": today, "times": times})
