@@ -30,7 +30,8 @@
     <h2>Тематики</h2>
     <ul class="chips">{% for t in c.themes.all %}<li>{{ t.name }}</li>{% empty %}<li>Без тематики</li>{% endfor %}</ul>
     <div class="hero-actions">
-      <a class="btn" href="{% url 'catalog' %}?category={{ c.category.id }}">Похожие в категории</a>
+      <a class="btn" href="{% url 'booking' %}?costume={{ c.id }}">Забронировать</a>
+      <a class="btn btn-ghost" href="{% url 'catalog' %}?category={{ c.category.id }}">Похожие в категории</a>
       <a class="btn btn-ghost" href="{% url 'catalog' %}">Вернуться в каталог</a>
     </div>
   </div>

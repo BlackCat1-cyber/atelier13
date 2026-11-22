@@ -224,6 +224,10 @@ def booking(request):
                         messages.success(request, f"Бронь оформлена: {days} сут. × {price} ₽ + залог {deposit} ₽ = {total} ₽")
         else:
             messages.error(request, "Заполните все обязательные поля.")
+    elif request.GET.get("costume"):
+        # переход с карточки наряда: наряд уже выбран в форме
+        costume_pk = _int_param(request.GET.get("costume"))
+        costume = costumes.filter(pk=costume_pk).first() if costume_pk is not None else None
     return render(request, "booking.html", {
         "costumes": costumes,
         "costume": costume,
