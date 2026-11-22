@@ -267,10 +267,8 @@ def account(request):
         else:
             messages.success(request, "Профиль обновлён.")
 
-    bookings = [
-        {"costume": "Платье «Аврора»", "start": "2026-11-25", "end": "2026-11-27", "days": 2, "total": 8000},
-        {"costume": "Смокинг «Джеймс»", "start": "2026-12-01", "end": "2026-12-03", "days": 2, "total": 7000},
-    ]
+    # Своих броней у гостя нет. Список появится после реализации входа и сохранения броней (дефекты D-09, D-12).
+    bookings = []
 
     return render(request, "account.html", {
         "user_name": user_name,
