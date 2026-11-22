@@ -196,26 +196,29 @@ def booking(request):
         start = request.POST.get("start_date")
         end = request.POST.get("end_date")
         if costume_id and start and end:
-            try:
-                costume = Costume.objects.get(pk=costume_id)
-                d1 = date.fromisoformat(start)
-                d2 = date.fromisoformat(end)
-                if d2 <= d1:
-                    messages.error(request, "Дата возврата должна быть позже даты начала.")
-                elif d1 < date.today():
-                    messages.error(request, "Дата начала аренды не может быть в прошлом.")
-                elif not _is_free(costume, d1, d2):
-                    messages.error(request, "Наряд занят на выбранные даты (после возврата он 2 дня готовится к следующей аренде). Выберите другие даты.")
+            costume_pk = _int_param(costume_id)
+            costume = costumes.filter(pk=costume_pk).first() if costume_pk is not None else None
+            if costume is None:
+                messages.error(request, "Наряд не найден или недоступен для бронирования.")
+            else:
+                try:
+                    d1 = date.fromisoformat(start)
+                    d2 = date.fromisoformat(end)
+                except ValueError:
+                    messages.error(request, "Неверный формат даты.")
                 else:
-                    days = (d2 - d1).days
-                    price = int(costume.daily_price)
-                    deposit = int(costume.deposit_amount)
-                    total = days * price + deposit
-                    messages.success(request, f"Бронь оформлена: {days} сут. × {price} ₽ + залог {deposit} ₽ = {total} ₽")
-            except Costume.DoesNotExist:
-                messages.error(request, "Наряд не найден.")
-            except ValueError:
-                messages.error(request, "Неверный формат даты.")
+                    if d2 <= d1:
+                        messages.error(request, "Дата возврата должна быть позже даты начала.")
+                    elif d1 < date.today():
+                        messages.error(request, "Дата начала аренды не может быть в прошлом.")
+                    elif not _is_free(costume, d1, d2):
+                        messages.error(request, "Наряд занят на выбранные даты (после возврата он 2 дня готовится к следующей аренде). Выберите другие даты.")
+                    else:
+                        days = (d2 - d1).days
+                        price = int(costume.daily_price)
+                        deposit = int(costume.deposit_amount)
+                        total = days * price + deposit
+                        messages.success(request, f"Бронь оформлена: {days} сут. × {price} ₽ + залог {deposit} ₽ = {total} ₽")
         else:
             messages.error(request, "Заполните все обязательные поля.")
     return render(request, "booking.html", {
