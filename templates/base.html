@@ -25,9 +25,9 @@
         <li><a href="{% url 'booking' %}"{% if request.resolver_match.url_name == 'booking' %} aria-current="page"{% endif %}>Бронирование</a></li>
         <li><a href="{% url 'terms' %}"{% if request.resolver_match.url_name == 'terms' %} aria-current="page"{% endif %}>Условия</a></li>
         <li><a href="{% url 'account' %}"{% if request.resolver_match.url_name == 'account' %} aria-current="page"{% endif %}>Кабинет</a></li>
-        <li><a href="#cats">Категории</a></li>
-        <li><a href="#popular">Свободны сейчас</a></li>
-        <li><a href="#how">Как это работает</a></li>
+        <li><a href="{% url 'home' %}#cats">Категории</a></li>
+        <li><a href="{% url 'home' %}#popular">Свободны сейчас</a></li>
+        <li><a href="{% url 'home' %}#how">Как это работает</a></li>
       </ul>
     </nav>
   </div>
@@ -44,9 +44,9 @@
     </div>
     <nav aria-label="Разделы страницы">
       <ul>
-        <li><a href="#cats">Категории</a></li>
-        <li><a href="#popular">Свободные наряды</a></li>
-        <li><a href="#how">Как это работает</a></li>
+        <li><a href="{% url 'home' %}#cats">Категории</a></li>
+        <li><a href="{% url 'home' %}#popular">Свободные наряды</a></li>
+        <li><a href="{% url 'home' %}#how">Как это работает</a></li>
       </ul>
     </nav>
     <p class="muted"><a href="tel:+79000000000">+7 900 000-00-00</a><br>Наряды возвращаются после осмотра, залог — в день возврата</p>
