@@ -1,7 +1,7 @@
 from decimal import Decimal, InvalidOperation
 
 from django.core.paginator import Paginator
-from django.db.models import Count, Q
+from django.db.models import Count
 from django.shortcuts import get_object_or_404, render
 
 from .models import Category, Costume, Theme
@@ -47,11 +47,22 @@ def home(request):
     })
 
 
+def _search_ids(text):
+    """id нарядов, у которых название, артикул или описание содержат text без учёта регистра.
+
+    SQLite (LIKE и lower()) не различает регистр только у латиницы, поэтому «платье» не находило «Платье».
+    Каталог небольшой, поэтому сравниваем в Python через casefold().
+    """
+    needle = text.casefold()
+    return [pk for pk, *fields in Costume.objects.values_list("pk", "name", "article", "description")
+            if any(needle in (f or "").casefold() for f in fields)]
+
+
 def _filtered(params):
     qs = Costume.objects.select_related("category", "size_params").prefetch_related("themes")
     q = (params.get("q") or "").strip()
     if q:
-        qs = qs.filter(Q(name__icontains=q) | Q(article__icontains=q) | Q(description__icontains=q))
+        qs = qs.filter(pk__in=_search_ids(q))
     category = _int_param(params.get("category"))
     if category is not None:
         qs = qs.filter(category_id=category)
