@@ -136,20 +136,35 @@ def _fitting_count(value):
     return number if 1 <= number <= MAX_FITTING_COSTUMES else None
 
 
+def _fitting_slot_error(day_text, time_text, times):
+    """Текст ошибки для даты и времени примерки или None, если слот корректен."""
+    try:
+        day = date.fromisoformat(day_text)
+    except ValueError:
+        return "Укажите дату примерки в формате ГГГГ-ММ-ДД."
+    if time_text not in times:
+        return f"Выберите время примерки из списка ({times[0]}–{times[-1]})."
+    if datetime.combine(day, datetime.strptime(time_text, "%H:%M").time()) <= datetime.now():
+        return "Выбранные дата и время уже прошли. Выберите время в будущем."
+    return None
+
+
 def fitting(request):
+    times = [f"{h:02d}:00" for h in range(10, 20)]
     if request.method == "POST":
         fitting_date = request.POST.get("fitting_date")
         fitting_time = request.POST.get("fitting_time")
         count = request.POST.get("costume_count")
         if not (fitting_date and fitting_time and count):
             messages.error(request, "Заполните все обязательные поля.")
+        elif (slot_error := _fitting_slot_error(fitting_date, fitting_time, times)):
+            messages.error(request, slot_error)
         elif _fitting_count(count) is None:
             messages.error(request, f"Количество нарядов должно быть целым числом от 1 до {MAX_FITTING_COSTUMES}.")
         else:
             messages.success(request, f"Вы записаны на примерку {fitting_date} в {fitting_time}. Мы свяжемся с вами для подтверждения.")
             return redirect("fitting")
     today = date.today().isoformat()
-    times = [f"{h:02d}:00" for h in range(10, 20)]
     return render(request, "fitting.html", {"today": today, "times": times})
 
 def booking(request):
