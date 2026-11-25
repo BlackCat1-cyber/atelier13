@@ -256,27 +256,18 @@ def _profile_error(name, email, phone):
 
 
 def account(request):
-    user_name = "Гость"
-    user_email = ""
-    user_phone = ""
-    bookings = []
-
-    if request.method == "POST":
-        user_name = request.POST.get("name", "").strip()
-        user_email = request.POST.get("email", "").strip()
-        user_phone = request.POST.get("phone", "").strip()
-        error = _profile_error(user_name, user_email, user_phone)
-        if error:
-            messages.error(request, error)
+    from .forms import AccountForm
+    user_name, user_email, user_phone, bookings = 'Гость', '', '', []
+    if request.method == 'POST':
+        form = AccountForm(request.POST)
+        if form.is_valid():
+            user_name = form.cleaned_data['name']
+            user_email = form.cleaned_data['email']
+            user_phone = form.cleaned_data['phone']
+            messages.success(request, 'Профиль обновлён.')
         else:
-            messages.success(request, "Профиль обновлён.")
-
-    # Своих броней у гостя нет. Список появится после реализации входа и сохранения броней (дефекты D-09, D-12).
-    bookings = []
-
-    return render(request, "account.html", {
-        "user_name": user_name,
-        "user_email": user_email,
-        "user_phone": user_phone,
-        "bookings": bookings,
+            messages.error(request, form.errors.get('name', ['Заполните поля корректно.'])[0])
+    return render(request, 'account.html', {
+        'user_name': user_name, 'user_email': user_email,
+        'user_phone': user_phone, 'bookings': bookings,
     })

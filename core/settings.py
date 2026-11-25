@@ -139,3 +139,16 @@ TEMPLATES[0]['DIRS']=[_U/'templates']
 TEMPLATES[0]['APP_DIRS']=True
 STATIC_URL='/static/'
 STATICFILES_DIRS=[_U/'static']
+
+import os
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {'class': 'logging.StreamHandler'},
+        'file': {'class': 'logging.FileHandler', 'filename': 'logs/app.log'},
+    },
+    'loggers': {
+        'app_catalog': {'handlers': ['console', 'file'], 'level': 'INFO'},
+    },
+}
